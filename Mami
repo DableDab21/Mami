@@ -1,0 +1,52 @@
+print('''
+Это программа для шифрования и дешифрования предложений.
+Выбери, что ты хочешь сделать и введи соответсвующую цифру:
+1 - шифровка "хоп-наоборот";
+2 - шифровка "вырезай-переставляй";
+3- расшифровка текста, зашифрованного методом "хоп-наоборот";
+4 - расшифровка текста, зашифрованного методом "вырезай-переставляй";
+Чтобы выйти, введи -1.
+''')
+question = int(input("Что желаете сделать? "))
+while question != -1:
+   if question == 1:
+       str1 = input("Введите текст: ")
+       str2 = ""
+       count = len(str1) - 1
+       while count >= 0:
+           str2 = str2 + str1[count]
+           count = count - 1
+       print(str2)
+       question = int(input("Что желаете сделать? "))
+   if question == 2:
+       checklist = input("Введите текст: ").split()
+       num = 0
+       for i in range(len(checklist)):
+           one = checklist[num]
+           checklist[num] = checklist[1]
+           checklist[1] = one
+           num = num + 1
+       print(" ".join(checklist))
+       question = int(input("Что желаете сделать? "))
+   if question == 3:
+       str1 = input("Введите текст, зашифрованный методом хоп-наоборот: ")
+       str2 = ""
+       count = len(str1) - 1
+       while count >= 0:
+           str2 = str2 + str1[count]
+           count = count - 1
+       print(str2)
+       question = int(input("Что желаете сделать? "))
+   if question == 4:
+       checklist = input("Введите элементы списка через пробел: ").split()
+       num = len(checklist) - 1
+       word = ""
+       for i in range(len(checklist)):
+           one = checklist[num]
+           checklist[num] = checklist[1]
+           checklist[1] = one
+           num = num - 1
+       for i in checklist:
+           word = word + i + " "
+       print(word)
+       question = int(input("Что желаете сделать? "))
